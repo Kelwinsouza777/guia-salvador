@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RESET E BASE INOVADORA
+   RESET, ACESSIBILIDADE E REGRAS UNIVERSAIS (Mídia e Usuário)
    ========================================================================== */
 * {
     margin: 0;
@@ -8,21 +8,38 @@
     font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
 }
 
+/* Foco visível universal para navegação por teclado (Acessibilidade) */
+*:focus-visible {
+    outline: 3px solid #ff7b00;
+    outline-offset: 3px;
+}
+
 body {
-    background-color: #fcfbfa; /* Fundo off-white mais aconchegante */
+    background-color: #fcfbfa;
     color: #2b2d42;
+    overflow-x: hidden; /* Evita qualquer rolagem horizontal acidental */
+}
+
+/* Regra Universal de Mídia (Não estoura e mantém proporção) */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* ==========================================================================
-   ELEMENTOS GERAIS E BOTÕES
+   ELEMENTOS GERAIS E BOTÕES (Área de Toque Mínima de 44px)
    ========================================================================== */
 .btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff7b00, #ffae00); /* Degradê solar */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff7b00, #ffae00);
     color: white;
-    padding: 0.6rem 1.3rem;
+    min-height: 44px; /* Área de toque digna em conformidade com o WCAG */
+    padding: 0.6rem 1.5rem;
     text-decoration: none;
-    border-radius: 50px; /* Botões arredondados e modernos */
+    border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     box-shadow: 0 4px 10px rgba(255, 123, 0, 0.3);
@@ -35,10 +52,10 @@ body {
 }
 
 /* ==========================================================================
-   CABEÇALHO (GRADIENTE PÔR DO SOL)
+   CABEÇALHO (Links com área de toque mínima)
    ========================================================================== */
 .main-header {
-    background: linear-gradient(135deg, #d90429, #ff7b00); /* Pôr do sol baiano */
+    background: linear-gradient(135deg, #d90429, #ff7b00);
     color: white;
     padding: 1.2rem;
     display: flex;
@@ -51,7 +68,6 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    letter-spacing: -0.5px;
     text-transform: uppercase;
 }
 
@@ -65,7 +81,10 @@ body {
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px; /* Área de toque digna para o menu */
     transition: color 0.2s ease;
 }
 
@@ -75,7 +94,7 @@ body {
 }
 
 /* ==========================================================================
-   HERO BANNER
+   HERO BANNER & TIPOGRAFIA FLUIDA (Clamp nos Títulos)
    ========================================================================== */
 .hero {
     text-align: center;
@@ -84,8 +103,9 @@ body {
                 repeating-linear-gradient(45deg, #ffeeee 0px, #ffeeee 20px, #fffbf5 20px, #fffbf5 40px);
 }
 
+/* Tipografia Fluida calculada para os extremos de 360px e 1280px */
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 1.35rem + 2vw, 2.8rem);
     color: #d90429;
     margin-bottom: 0.5rem;
     font-weight: 800;
@@ -113,21 +133,20 @@ body {
 
 .card {
     background: white;
-    border-radius: 16px; /* Bordas mais suaves */
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave e flutuante */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efeito flutuante inovador ao passar o mouse */
+    transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(217, 4, 41, 0.1);
 }
 
 .card img {
     width: 100%;
     height: 240px;
-    object-fit: cover;
 }
 
 .card-content {
@@ -135,7 +154,7 @@ body {
 }
 
 .card-content h3 {
-    font-size: 1.3rem;
+    font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
     margin-bottom: 0.5rem;
     color: #2b2d42;
 }
@@ -147,7 +166,7 @@ body {
 }
 
 /* ==========================================================================
-   PÁGINA DE DETALHES
+   PÁGINA DE DETALHES & FLUIDEZ
    ========================================================================== */
 .detalhes-container {
     max-width: 1100px;
@@ -166,8 +185,6 @@ body {
 .detalhes-hero img {
     width: 100%;
     height: 400px;
-    object-fit: cover;
-    display: block;
 }
 
 .hero-titulo {
@@ -178,7 +195,7 @@ body {
 }
 
 .hero-titulo h2 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 1.1rem + 1.3vw, 2rem);
     font-weight: 800;
 }
 
@@ -196,7 +213,7 @@ body {
     color: #d90429;
     font-size: 1.4rem;
     margin-bottom: 1.2rem;
-    border-bottom: 3px solid #ffae00; /* Linha amarela dourada abaixo do título */
+    border-bottom: 3px solid #ffae00;
     padding-bottom: 0.4rem;
     display: inline-block;
 }
@@ -219,7 +236,9 @@ body {
 }
 
 .btn-voltar {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     margin-top: 1.5rem;
     color: #ff7b00;
     text-decoration: none;
